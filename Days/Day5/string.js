@@ -50,6 +50,8 @@ console.log(str.replace('brown' , 'black'));
 
 
 
+
+
  /* -------------------- Notes --------------------
  For better understanding open browser and inspect and inside console type this and we'll get all key pair value as well as prototype. 
  we can use prototype - methods also.
