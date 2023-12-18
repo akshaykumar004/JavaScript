@@ -1,0 +1,67 @@
+<!--  ----------------------- 18 Dec 2023  ------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: yellowgreen; font-size: 40px; font-family: 'Times New Roman'; font-style: italic;">
+
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+        <div class="day">Sunday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent)                 // for seeing the log open browser console.
+    // console.log(parent.children)        // giving o/p in HTML collection
+    // console.log(parent.children[2])
+    // console.log(parent.firstElementChild)
+    // console.log(parent.lastElementChild)
+    // console.log(parent.children[4].innerHTML)
+
+    for (let i = 0; i < parent.children.length; i++) {      // here we're running loop until childern length bcz it has only HTMl collection
+        // console.log(parent.children[i].innerHTML)
+           
+    }
+
+    // console.log(parent.children[1].style.color = "brown")
+    // console.log(parent.children[3].style.color = "brown")
+    // console.log(parent.children[5].style.color = "brown")
+
+    const days = document.querySelector('.day')
+    // console.log(days)
+    // console.log(days.parentElement)
+    // console.log(days.nextElementSibling)
+    // console.log(days.nextSibling)      //here o/p is text bcz of nodelist. since after nextSiblingElement it is counting line breaks as text.
+
+// A nodelist is a collection of document nodes which includes text nodes , attribute nodes and element nodes. 
+// A line break is also counted in nodelist but only first one. All subsequent line breaks are ignored by browser
+
+//console.log("Nodes : " , parent.childNodes)     // here it is giving 15 child nodes due to nodelist. explanation is in above line.
+
+
+//========================================= How to create new element ====================================
+
+const div = document.createElement('div')
+console.log(div)
+div.className = 'manuallyCreated'
+div.id = Math.round(Math.random())
+div.setAttribute('title' , "generated title")
+div.style.backgroundColor = "yellow"
+//div.innerText = "Manually Created New Element."
+const addText = document.createTextNode("Manually Created New Element.")  
+div.appendChild(addText)     // like this also we can add text. first declare and the apend with div.
+
+document.body.appendChild(div)
+
+</script>
+</html>

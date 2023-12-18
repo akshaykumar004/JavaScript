@@ -1,0 +1,71 @@
+<!-- Open browser console and experience below methods -->
+
+<!-- just type - document.body     -- rsult is below. it will give body contents.
+<body class=​"bg-black">​…​</body>​<div>​…​</div>
+​<h1 id=​"title" class=​"heading">​DOM learning on Chai aur code ​</h1>
+​<h4>​Lorem ipsum dolor sit.​</h4>
+​<h4>​Lorem ipsum dolor sit.​</h4>
+​<h4>​Lorem ipsum dolor sit.​</h4>
+​<input type=​"password" name id> -- input will work like as a box to take input. 
+<h1>​Hi, today is the 14 dec 2023 and we are learning DOM.​</h1>
+​<p>​"PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr 
+    AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh "
+</p>​</div>
+​</body>​
+---------------------- now will fetch elements by Id ------------------
+
+document.getElementById('title')
+<h1 id=​"title" class=​"heading">​DOM learning on Chai aur code ​</h1>​
+document.getElementById('title').id     // will give id
+'title'
+document.getElementById('title').class  // will give class is undefined bcz it works as className.
+undefined
+document.getElementById('title').class
+undefined
+document.getElementById('title').className      // here it will give class Name.
+'heading'
+document.getElementById('title').getAttribute('id')     // like .id , .class this will give direct value bu using .getAttribute.
+'title'
+document.getElementById('title').getAttribute('class')
+'heading'
+document.getElementById('title').setAttribute('class' , 'changeAttribute')  // .setAttribute - it will change the attribute.
+undefined
+const title = document.getElementById('title')      // here we're storing the document.getelementById into a var called title for easy access.
+undefined
+
+title       // it will print whole value .
+<h1 id=​"title" class=​"changeAttribute">​DOM learning on Chai aur code ​</h1>​
+title.style.backgroundColor='black'     // it will change background color
+'black'
+title.sty
+undefined
+title.style.backgroundColor = 'grey'
+'grey'
+title.style.backgroundColor = 'white'
+'white'
+title.style.padding = "10px"        // it will change padding
+'10px'
+title.style.borderRadius = "20px"   // it will change border radius.
+=========================================================================================
+we can fetch content by these methods --------------
+// here all method giving same reuslt but there is diff between them.
+
+title.textContent
+'DOM learning on Chai aur code'
+title.innerText
+'DOM learning on Chai aur code'
+title.innerHTML
+'DOM learning on Chai aur code'
+
+//-----------------After adding span into first file.
+// see the result now......................
+
+title.textContent       // this is printing all content of that tag - "to check diff b/w innerText & textContent"..
+'DOM learning on Chai aur code to check diff b/w innerText & textContent '
+
+title.innerText         // this is not printing all content of that tag bcz of dispaly as none in span tag<>.
+'DOM learning on Chai aur code'
+
+title.innerHTML         // this is printing all content of that tag including html tag whatever you defined including <span> tag.
+'DOM learning on Chai aur code <span style="display:none;">to check diff b/w innerText &amp; textContent</span> '
+-->

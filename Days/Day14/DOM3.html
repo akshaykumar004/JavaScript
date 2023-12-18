@@ -1,0 +1,171 @@
+<!--  ----------------------- 18 Dec 2023  ------------------- -->
+
+
+<!--
+    Using Query Selector method we can fetch everything..
+
+//=========================== QuerySelector====================================================================
+
+document.querySelector('title')
+<title>​DOM​</title>​
+document.querySelector('#title')    // here we're using # to call title so you can see this works like CSS.
+<h1 id=​"title" class=​"heading">​"DOM learning on Chai aur code "<span style=​"display:​none;​">​to check diff b/w innerText & textContent​</span>​</h1>​
+document.querySelector('.class')
+null
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​"DOM learning on Chai aur code "<span style=​"display:​none;​">​to check diff b/w innerText & textContent​</span>​</h1>​
+document.querySelector('p')
+<p>​"PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh "</p>​
+document.querySelector('input')
+<input type=​"password" name=​" " id=​" ">​
+document.querySelector('input[type="password"]')
+<input type=​"password" name=​" " id=​" ">​
+document.querySelector('h4')
+<h4>​Lorem ipsum dolor sit.​</h4>​
+
+
+document.querySelector('ul')            // here fetching all UL.
+<ul>​<li>​…​</li>​<li>​…​</li>​<li>​…​</li>​</ul>​
+const myUl = document.querySelector('ul')   // here storing all UL into a variable called myUl.
+undefined
+myUl.querySelector('one')       
+null
+myUl.querySelector('list')
+null
+myUl.querySelector('li')        // // here fetching list item. query selector will fetch always first list/item
+<li>​…​</li>​::marker​"One"</li>​
+const color = myUl.querySelector('li')  // here storing first UL into a variable called color bcz we want to change bg color of first list item.
+undefined
+color.style.backgroundColor = "green"   // here we can easily apply all css property like below.
+'green'
+color.style.backgroundColor = "yellow"
+'yellow'
+color.style.padding = "10px"
+'10px'
+
+color.innerText         // here we fetched innertext of first list item
+'One'
+color.innerText = "Changed to Five"     // here we changed to five.
+'Changed to Five'
+
+color.innerText         // here it changed to five and printing five.
+'Changed to Five'
+
+
+//++=========================== QuerySelectorAll ====================================================================
+
+document.querySelectorAll('li')   //here we're calling querySelectorAll method. it will return into a nodeArray.it is just like Array but not same
+
+NodeList(3) [li, li, li]0: li1: li2: liaccessKey: ""ariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "file:///C:/Users/77079/OneDrive/Documents/JavaScript/Days/Day14/DOM.html"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 18clientLeft: 0clientTop: 0clientWidth: 968contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "Three"innerText: "Three"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "li"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: nullnextSibling: textnodeName: "LI"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 18offsetLeft: 48offsetParent: body.bg-blackoffsetTop: 391offsetWidth: 968onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontouchcancel: nullontouchend: nullontouchmove: nullontouchstart: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<li>Three</li>"outerText: "Three"ownerDocument: documentparentElement: ulparentNode: ulpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: lipreviousSibling: textrole: nullscrollHeight: 18scrollLeft: 0scrollTop: 0scrollWidth: 968shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "LI"textContent: "Three"title: ""translate: truetype: ""value: 0virtualKeyboardPolicy: ""[[Prototype]]: HTMLLIElement(...)length: 3[[Prototype]]: NodeListentries: ƒ entries()forEach: ƒ forEach()item: ƒ item()keys: ƒ keys()length: (...)values: ƒ values()constructor: ƒ NodeList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "NodeList"get length: ƒ length()[[Prototype]]: Object
+const nodeArray = document.querySelectorAll('li')       // stored into a variable called nodeArray ..
+undefined
+nodeArray           // now we can apply multiple properties on this nodeArray.
+NodeList(3) [li, li, li]
+nodeArray.style.backgroundColor = "green"       // it is not working like querySelector method. bcz it applies on only one iteam.
+VM3154:1 Uncaught TypeError: Cannot set properties of undefined (setting 'backgroundColor')
+    at <anonymous>:1:33
+(anonymous) @ VM3154:1
+nodeArray[0].style.backgroundColor = "green"        // here it will work after using this array declaration [0]
+'green'
+
+document.querySelectorAll('li')
+NodeList(3) [li, li, li]
+const nodeArray = document.querySelectorAll('li')
+undefined
+nodeArray                   // utilising some methods of nodeList. like for each , length , item , keys etc.
+NodeList(3) [li, li, li]
+nodeArray.forEach(function (l) {
+    l.style.color = "green"
+})
+undefined
+nodeArray.forEach(function (l) {
+    l.style.color = "yellow"
+})
+undefined
+nodeArray.forEach(function (l) {
+    l.style.color = "blue"
+})
+undefined
+nodeArray.length
+3
+nodeArray.item
+ƒ item() { [native code] }
+nodeArray.item = "one"
+'one'
+nodeArray.keys.length = "one"
+'one'
+
+
+//------Node List is just like Array but it is not works like actual Array. so to apply array properties we've to convert it into an array.
+
+const convertArr = document.querySelectorAll('li')
+undefined
+convertArr
+NodeList(3) [li, li, li]0: li1: li2: lilength: 3[[Prototype]]: NodeListentries: ƒ entries()forEach: ƒ forEach()item: ƒ item()keys: ƒ keys()length: (...)values: ƒ values()constructor: ƒ NodeList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "NodeList"get length: ƒ length()[[Prototype]]: Object
+
+
+const actualArr = Array.from(convertArr)        // here Array.from will convert NodeList into an actual Array.
+undefined
+actualArr
+(3) [li, li, li]
+actualArr.forEach(function (li) {
+    li.style.color = "orange"
+} )
+
+document.getElementsByClassName('List')     // we can find item by class name also. it has some prototype but not like array. it will return in HTML Collection.
+HTMLCollection(3) [li.List, li.List, li.List]0: li.List1: li.List2: li.Listlength: 3[[Prototype]]: HTMLCollectionitem: ƒ item()length: (...)namedItem: ƒ namedItem()constructor: ƒ HTMLCollection()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "HTMLCollection"get length: ƒ length()[[Prototype]]: Object
+const elementByClassName = document.getElementsByClassName('List')
+elementByClassName
+HTMLCollection(3) [li.List, li.List, li.List]
+
+Array.from(elementByClassName)      // it will convert into an array.
+(3) [li.List, li.List, li.List]
+
+
+// finding all headings in page and manipulation ------
+
+document.querySelectorAll('h4')
+NodeList(2) [h4, h4]0: h4accessKey: ""align: ""ariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "file:///C:/Users/77079/OneDrive/Documents/JavaScript/Days/Day14/DOM.html"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 18clientLeft: 0clientTop: 0clientWidth: 1008contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "Lorem ipsum dolor sit."innerText: "Lorem ipsum dolor sit."inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "h4"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: input# nextSibling: textnodeName: "H4"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 18offsetLeft: 8offsetParent: body.bg-blackoffsetTop: 170offsetWidth: 1008onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<h4>Lorem ipsum dolor sit.</h4>"outerText: "Lorem ipsum dolor sit."ownerDocument: documentparentElement: divparentNode: divpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: h3previousSibling: textrole: nullscrollHeight: 18scrollLeft: 0scrollTop: 0scrollWidth: 1008shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "H4"textContent: "Lorem ipsum dolor sit."title: ""translate: truevirtualKeyboardPolicy: ""[[Prototype]]: HTMLHeadingElement(...)1: h4accessKey: ""align: ""ariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "file:///C:/Users/77079/OneDrive/Documents/JavaScript/Days/Day14/DOM.html"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 37clientLeft: 0clientTop: 0clientWidth: 1008contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr\n            AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh"innerText: "PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "h4"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: pnextSibling: textnodeName: "H4"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 37offsetLeft: 8offsetParent: body.bg-blackoffsetTop: 292offsetWidth: 1008onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<h4>PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr\n            AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh</h4>"outerText: "PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh"ownerDocument: documentparentElement: divparentNode: divpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: ppreviousSibling: prole: nullscrollHeight: 37scrollLeft: 0scrollTop: 0scrollWidth: 1008shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "H4"textContent: "PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr\n            AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh"title: ""translate: truevirtualKeyboardPolicy: ""[[Prototype]]: HTMLHeadingElement(...)length: 2[[Prototype]]: NodeList
+const allHeading = document.querySelectorAll('h4')
+undefined
+allHeading
+NodeList(2) [h4, h4]
+allHeading[0].innerText
+'Lorem ipsum dolor sit.'
+allHeading[1].innerText
+'PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh'
+
+
+
+//=======================================  Open DOM Manipulation Wikipedia Page =================================================
+
+                                           https://en.wikipedia.org/wiki/Brendan_Eich
+
+
+const allHeading = document.querySelectorAll('h2')      // here all h2 heading text will appear.
+undefined
+allHeading
+NodeList(5) [h2.vector-pinnable-header-label, h2, h2, h2, h2]0: h2.vector-pinnable-header-label1: h22: h23: h24: h2length: 5[[Prototype]]: NodeList
+allHeading[2].innerText
+'Career[edit]'
+
+allHeading.forEach (function (heading) {
+    heading.style.color = "green"
+})
+undefined
+allHeading.forEach (function (heading) {
+    heading.style.color = "red"
+})
+undefined
+allHeading.forEach (function (heading) {
+    heading.style.color = "green";
+    heading.backgroundColor = "yellow";
+    heading.padding = "10px"
+})
+undefined
+allHeading.forEach (function (heading) {
+    heading.innerText = "Akshay"            // here all h2 heading text will change to Akshay
+})
+
+
+-->

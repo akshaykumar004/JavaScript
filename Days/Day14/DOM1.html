@@ -1,0 +1,58 @@
+<!--  --------------------------- Day-14, 14-12-2023 ----------------------------------------
+
+ DOM - Document Object Model   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+        .bg-black {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id="title" class="heading">DOM learning on Chai aur code <span style="display:none;">to check diff b/w innerText & textContent</span> </h1>
+         <!-- here in span we have given value but it's not showing due to style display:none... to check .innerText and .textContent diff.-->
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h3>Lorem ipsum dolor sit.</h3>
+        <h4>Lorem ipsum dolor sit.</h4>
+        <input type="password" name=" " id=" ">       <!-- input will work like as a box to take input. -->
+        <h5>Hi, today is the 14 dec 2023 and we are learning DOM.</h5>
+        <p> <h4>PpppppppppppppppppppppAaaaaaaaaaaaaaaaaaRrrrrrrrrrrrrrrrrrAaaaaaaaaaaaaaaaaaaaaGgggggggggggggggggggggRrrrrrrrrrrrrrrrrrrrrr
+            AaaaaaaaaaaaaaaaaaaPpppppppppppppppppppppppppHhhhhhhhhhhhhhhhhhhh</h4> </p>  
+
+        <ul> 
+        <li class = "List"> One </li>
+        <li class = "List"> Two </li>
+        <li class = "List"> Three </li>
+        </ul>
+
+    </div>  
+   
+</body>
+</html>
+
+<!-- Goto chrome browser  - open Brendan Eich wikipedia - console - 
+
+console.log(window)
+console.log(window.document) or only document -- this will give multiple method to use..
+we can fetch multiple things using below console.
+
+console.dir(document)       // this will give multiple methods to use. if we will print using console.log(document) then it will not give methods
+so for fetching attribute give console.dir(document)
+
+console.log(document.location)
+console.log(document.baseURI)   // this will give base url for page.
+console.log(document.links)     // this will give all url links from page.
+console.log(document.links[2])  // this will give 2nd links of page.
+document.getElementById('firstHeading') // we can search any element like this
+
+document.getElementById('firstHeading').innerHTML="<h1> DOM Manipulation</h1>"  // like this we can manipulate dom .
+
+for exercise see next file -  "DOM2.html" and "DOM3.html"
+
+-->

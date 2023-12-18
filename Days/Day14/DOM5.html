@@ -1,0 +1,63 @@
+<!--  -----------------------  18 Dec 2023 ------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: yellowgreen; font-size: 50px; font-style: italic;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+
+<!--   Adding more languages using function ---------------------------->
+
+<script>
+    function addlanguage(langName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage('Python')
+    addlanguage('Java')
+
+    // Optimize way -------------------------------------
+
+    function addlanguage(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage("Kotlin")
+    addlanguage("C++")
+
+// ----------------- Removing element -------------------------------------
+
+const replaceElement = document.querySelector("li:nth-child(3)")        // li:nth-child() wil select list element.
+
+replaceElement.innerHTML = "Cobol"  // it will replce Java to Cobol
+
+// another way to replace -----------
+
+const newWay = document.createElement('li')     // create a new variable 
+newWay.textContent = "Java"                     // set the content
+replaceElement.replaceWith(newWay)      // it will replce Cobol to Java
+
+// another way to replace -----------
+
+const replace = document.querySelector("li:first-child")    // first value will change.
+replace.outerHTML = "<li> TypeScript </li>"
+
+
+//---------------- Removing of element --------------------------
+
+const removeElement = document.querySelector("li:last-child")
+//removeElement.remove()
+
+</script>
+
+
+</html>
