@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Color Switcher Game</h1>
+
+    <button class="button" id="grey"> Grey </button>
+    <button class="button" id="yellow"> Yellow</button>
+    <button class="button" id="blue"> Blue</button>
+    <button class="button" id="purple"> Purple </button>
+    <button class="button" id="brown"> Brown </button>
+
+    <div>                     <!-- here after using div all three buttons will come into next line. otherwise it will come in same line.-->
+        <button class="buttons" id="skyblue"> Skyblue </button>
+        <button class="buttons" id="orange"> Orange</button>
+        <button class="buttons" id="voilet"> Voilet</button>
+    </div>
+    
+    
+    <h2>Click on the above colors button to change the background color of this page..!</h2>
+    
+
+    <script>
+        const body = document.querySelector('body')          // here it will select whole body content and store in var body.
+        const allButtons = document.querySelectorAll('.button')    // this will select all buttons and store in var allbuttons
+        const nextButtons = document.querySelectorAll('.buttons')
+
+        allButtons.forEach(function(eventTrigger){          // this loop will apply on all buttons.
+            eventTrigger.addEventListener('click' , function(eT) {      // eT is just name.
+        
+        if (eT.target.id === 'grey') {
+            body.style.backgroundColor = 'grey'
+        }
+        if (eT.target.id === 'yellow') {
+            body.style.backgroundColor = 'yellow'
+        }
+        if (eT.target.id === 'blue') {
+            body.style.backgroundColor = 'blue'
+        }
+        if (eT.target.id === 'purple') {
+            body.style.backgroundColor = eT.target.id       // this will also work bcz it's same only as id.
+        }
+        if (eT.target.id === 'brown') {
+            body.style.backgroundColor = eT.target.id
+        }
+        
+    })
+
+})
+            
+//===================================== Using Switch Case Method....--------------------------
+
+        nextButtons.forEach(function (newMethod) {
+            newMethod.addEventListener('click' , function () {
+                const colorId = this.id                             // this will select all id of buttons.
+
+                switch(colorId) {
+
+                    case 'skyblue':
+                    body.style.backgroundColor = 'skyblue'
+                    break;
+
+                    case 'orange':
+                    body.style.backgroundColor = 'orange'
+                    break;
+
+                    case  'voilet':
+                    body.style.backgroundColor = 'violet'
+                    break;
+
+                    default :
+                    body.style.backgroundColor = "pink"
+                    break;
+                    
+
+                }
+            })
+            
+        })
+        
+
+    </script>
+</body>
+</html>
