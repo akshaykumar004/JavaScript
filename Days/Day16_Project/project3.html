@@ -1,0 +1,51 @@
+<!-- --------------------- Day-16 , Project-3 - Digital Clock ------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        .date{
+            margin-left: 500px;
+            padding: 10px;
+            background-color: bisque;
+            text-align: center;
+            font-family: 'Times New Roman';
+            font-size: medium;
+        }
+        .time{
+            margin-left: 500px;
+            padding: 10px;
+            background-color: bisque;
+            text-align: center;
+            font-family: 'Times New Roman';
+            font-size: medium;
+        }
+        .clock{
+            margin-left: 515px;
+        }
+    </style>
+
+</head>
+<body style="background-color: yellowgreen;">
+    <h1 class="clock">Digital Clock</h1>
+    <input type="text" class="date"></input><br>
+    <input type="text" class="time"></input>
+    
+    <script>
+        const currentTime = document.querySelector('.time')
+        const currentDate = document.querySelector('.date')
+        // let date = new Date()
+        //currentTime.value = date.toLocaleTimeString()
+
+        // using above code also we can get latest time but to get every second updated time, Use setInterval function.
+        setInterval(function () {
+            let date = new Date()
+            currentDate.value = date.toDateString()
+            currentTime.value = date.toLocaleTimeString()
+        },1000)                                             // here 1000 refering miliseconds. it will change the time in every second
+
+    </script>
+</body>
+</html>
