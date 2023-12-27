@@ -1,0 +1,72 @@
+<!-- -------------------Day-16 ,  Project - 2 BMI Calculator --------------------------------- */ --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style2.css" >
+
+</head>
+<body style="background-color: bisque;">
+    <h1>BMI Calculator</h1>
+    <form>
+        <label class="height">Height in CM :  </label>
+        <input type="text" id="height"> <br><br>
+        <label class="weight">Weight in KG :  </label>
+        <input type="text" id="weight" class="br"> <br>
+        <!--<input type="submit" id="calculate" value="Calculate"><br> -->
+        <button>Calculate</button> <br>
+        <label >Your BMI is : </label> 
+        <input type="text" id="result" class="bmi"> <br><br>
+        <label >Weight Status : </label>
+        <input type="text" id="status">
+    </form>
+
+    <h3>BMI Weight Guide</h3>
+    <p class="paragraph"> Under Weight = below 18.5 <br> Ideal Weight = between 18.5 and 24.9 <br> Over Weight = between 25 and 29.9 <br>
+        Obesity = 30 or over</p>
+
+</body>
+
+<script>
+    const form = document.querySelector('form')
+    form.addEventListener('submit' , function(e) {
+        e.preventDefault();
+
+        const height = parseInt(document.querySelector('#height').value);
+        const weight = parseInt(document.querySelector('#weight').value);
+        const result = document.querySelector('#result');
+        const status = document.querySelector('#status');
+
+
+    if (isNaN(height) || height <= 0) {
+        result.value = `Invalid Value ${height}`;
+        status.value = 'Undefined';
+    }
+    else if (isNaN(weight) || weight <= 0) {
+        result.value = `Invalid Value ${weight}`;
+        status.value = 'Undefined';
+    }
+    else {
+        const bmiCal = (weight / ((height / 100) * (height / 100))).toFixed(2);
+        result.value = bmiCal
+
+        // Determine weight status 
+
+        if (bmiCal < 18.5) {
+            status.value = 'Under Weight';
+        } else if (bmiCal >= 18.5 && bmiCal <= 24.9) {
+            status.value = 'Ideal Weight';
+        } else if (bmiCal >= 25 && bmiCal <= 29.9) {
+            status.value = 'Over Weight';
+        } else {
+            status.value = 'Obesity';
+        }   
+    }
+
+    });
+
+</script>
+</html>
