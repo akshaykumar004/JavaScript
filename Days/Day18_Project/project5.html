@@ -1,0 +1,77 @@
+<!-- ===================================== Day 18 , 29 Dec 2023 ========================================
+============================================ Project - 5 - Random Background Color =====================-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 5</title>
+    <style>
+        #start {
+            padding: 5px;
+            margin-left: 600px;
+            margin-top: 50px;
+            text-align: center;
+            width: 70px;
+            border-radius: 10px;
+            background-color: green;
+        }
+        #stop {
+            padding: 5px;
+            margin-left: 30px;
+            text-align: center;
+            width: 70px;
+            border-radius: 10px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <p><h2 style="text-align: center; color: green;">Click on Start Button to change background color of page randomly.</h2>
+    <h2 style="text-align: center; color: brown;">Click on Stop Button to stop this..!</h2></p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+</body>
+
+<script>
+
+    function randomColor() {
+        let hexValue = '0123456789ABCDEF'
+        let color = '#'
+
+        for (let i=0; i < 6 ; i++) {
+        color += hexValue[Math.floor(Math.random() * 16)]
+        //console.log(color)
+        }
+        console.log(color)
+        return color;
+        
+    }
+    //console.log(randomColor())        // to see the o/p open browser console.
+
+
+    let bgColor;        // to use for global scope declaring here so that use in setInterval and clearInterval
+    let isStartDone = false;    // can check interval has started or not so that give popup msg to click on start button first.
+    document.querySelector('#start').addEventListener('click',function(){ 
+        isStartDone = true
+            bgColor = setInterval(() => {
+            document.body.style.backgroundColor = randomColor()
+        }, 1000);
+        
+    });
+    document.querySelector('#stop').addEventListener('click',function(){ 
+        if(isStartDone == true) {
+            clearInterval(bgColor)
+        //document.body.style.backgroundColor = randomColor()
+        }
+        else {
+            alert('Pls Click on Start button first..!')
+        }
+        
+        
+    });
+
+</script>
+</html>
