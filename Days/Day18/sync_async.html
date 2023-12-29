@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync and Async</title>
+    <style>
+        #currentTime {
+            margin-top: 150px;
+            margin-left: 550px;
+            display: inline-block;      /* this will align input field next to currenTime h3 tag.. */
+        }
+        #start {
+            padding: 5px;
+            width: 70px;
+            margin-left: 600px;
+            margin-top: 30px;
+            border-radius: 10px;
+            background-color: bisque;
+        }
+        #stop {
+            padding: 5px;
+            width: 70px;
+            margin-left: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            background-color: bisque;
+        }
+        
+    </style>
+</head>
+
+<body style="background-color: aquamarine;">
+    <h1 style="margin-left: 550px;">Hello World...!</h1>
+    <button id = "button" style="padding: 20px; margin-left: 550px; background-color: antiquewhite;">Stop to clearTimeout</button>
+    <div >
+        <h3 id="currentTime">Current Time is : </h3>
+        <input type="text" id="inputTime" style="text-align: center;" value="Click on Start button"> <br>
+        <button id = "start">Start</button>
+        <button id = "stop">Stop</button>
+    </div>  
+</body>
+
+<script>
+    // const greeting = function() {
+    //     console.log("this message is printing after 3 second bcz of setTimeout method")    // open browser console and wait for 3 sec ,it will show.
+    // }
+    // setTimeout(greeting,3000)
+    const h1 = function() {
+        document.querySelector('h1').innerText = "Sync and Async in JavaScript...!"
+        console.log("this message is printing after 3 second with changed h1 tag text bcz of setTimeout method")
+        // you can see how Hello World is changing to newly text after 3 sec. for seeing this change open browser console.
+    }
+    //setTimeout(h1,3000)   // this will set the time for 3 sec. here 3000 is a milseconds.
+    const stopTimeout = setTimeout(h1,3000)
+    clearTimeout(stopTimeout)   //here we're directly stopping timeout but using eventlistener it will be good so belwo eventlistener will work only after stopping
+    document.querySelector('#button').addEventListener('click',function() {
+        clearTimeout(stopTimeout)        // this will clear timeout so it will not print after 3 sec with changed value.
+        console.log('Stopped..')
+    })
+    
+    let intervalId;                 // using this we can stop set interval time. otherwise after clicking on stop button it will not stop.
+    let intervalStarted = false;        // using this we'll monitor interval started or not if yes then only execute stop button.
+    document.querySelector('#start').addEventListener('click',function() {
+        intervalStarted = true;
+        intervalId = setInterval(() => {            // setInterval will start executing every sec.
+        let time = new Date()
+        //const startInput = document.querySelector('#inputTime')
+        inputTime.value = time.toLocaleTimeString()         // directly we can give current time to input field.
+    }, 1000);
+    
+    }) 
+
+    document.querySelector('#stop').addEventListener('click',function(e){
+        if (intervalStarted == true) {
+            e.preventDefault();
+            clearInterval (intervalId)      // this will stop interval time.
+            let time = new Date()
+            //const stopInput = document.querySelector('#inputTime')
+            inputTime.value = time.toLocaleTimeString()     // directly we can give current time to input field.
+        }
+        else {
+            inputTime.value = 'First Click on Start button'
+        }
+    })
+    
+</script>
+</html>
