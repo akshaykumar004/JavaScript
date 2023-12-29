@@ -1,0 +1,86 @@
+<!--   -------------------------- Day-17, 27 Dec 2023 ------------------------------------------ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event</title>
+</head>
+<body style="background-color: bisque;">
+    <h2 style="margin-left: 540px;">Amazing image</h2>
+    <div >
+        <ul id="images" style="list-style-type: decimal;">
+            <li style="margin-left: 500px;"><img width="150px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li style="margin-left: 500px;"><img width="150px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li style="margin-left: 500px;"><img width="150px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li style="margin-left: 500px;"><img width="150px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li style="margin-left: 500px;"><img width="150px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li><br>
+            <li style="margin-left: 500px;"><a style="color: blue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+
+<script>
+    // =========================================  Notes ==========================================
+
+    // document.getElementById('owl').onclick = function(){     // like this also we can add onclick functionality but this is not good way.
+    //     alert("owl clicked")     
+    // }
+
+     // attachEvent()   // previously we used to call event listener using this..
+    // jQuery - onEventListener
+
+    /* these are topics which is for self study
+        type, timestamp, defaultPrevented , target, toElement, srcElement, currentTarget, clientX, clientY, screenX, screenY
+        altkey, ctrlkey, shiftkey, keyCode  */
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the UL");
+    // }, false) 
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked..");
+    // }, false) 
+
+    /* above event propogation is false but this is default value. we can give true also. in above exapmple we're adding eventListener on two
+    id's one is - unordered list (id=images) and second is list item owl(id=owl)
+    false = event bubbling   - it works from bottom to top heirarchy
+    true = event capturing  - it works from top to bottom heirarchy
+        so in above examplewhen we'll use false(default) then it will follow bottom to top approach(bubbling) and o/p will be - 
+        Owl clicked..
+        clicked inside the UL
+
+    but when we'll use true instead of default value false then it will follow top to bottom approach(capturing) and o/p will be -
+        clicked inside the UL
+        Owl clicked..
+    */
+
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()          // next bubbling or capturing will stop means after "owl id" call next id will not call if any event added. 
+    // }, false)
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();      // it will stop defualt submission.
+    //     e.stopPropagation()      // it will stop bubbling/capturing means onClick msg will show but functionality will not work also next bubbling or capturing will stop. 
+    //     console.log("google clicked");  // exp - google cliced will show but it will not open google link.
+    // }, false)
+
+    // =========== task ------- after clicking on image it will remove ---------------------------
+
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);      // here tagName define the tag name of list iteam means this is image or text or anything else
+        if (e.target.tagName === 'IMG') {   // so using if we'll target only IMG so that it will remove only image otherwise it can remove all
+            console.log(e.target.id);       // this will print id of list item which will remove.
+            let removeImg = e.target.parentNode     //if we'll not select parentNode then only img will remove and listValue(1,2,..) will remain
+            removeImg.remove()                       // parentNode selecting whole UL.
+
+            //removeIt.parentNode.removeChild(removeImg)     // using this also we can remove image.
+        }
+        
+    })
+    
+
+</script>
+</html>
