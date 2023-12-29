@@ -1,0 +1,65 @@
+<!--================================  Dec-29 2023  Project-6 - Key Press Magic  =====================-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 6</title>
+    <style>
+        .css {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: aquamarine;
+        }
+        td {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body style="background-color: blueviolet;">
+    <div id="table">
+        <div style="text-align: center; margin-top: 80px;"><h1>Press any key from keyboard.</h1> </div>
+        <div class = "css" id="insert" style="text-align: center;">
+        </div>
+    </div>
+</body>
+
+<script>
+    const keyword = document.getElementById('#insert')
+    
+    window.addEventListener('keydown',function(e){
+        insert.innerHTML = `
+        <div>
+            <table>
+            <tr>
+                <th>Key</th>
+                <th>KeyCode</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <td>${e.key == ' ' ? 'Space' : e.key}</td>
+                <td>${e.keyCode}</td>
+                <td>${e.code}</td>
+            </tr>
+            </table>
+        </div>`
+        
+    });
+</script>
+</html>
