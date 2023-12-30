@@ -1,0 +1,100 @@
+<!--==========================  Day-19 API request and V8 engine ====================================
+
+ --------------- to access my api - open browser - https://api.github.com/users/akshaykumar004
+
+ or for random api use this -- randomuser.me/api         -->
+
+<!-- 
+    API requests and the V8 engine are two separate concepts, but they are both relevant to web development, 
+    particularly when working with JavaScript.
+
+API Requests:
+An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate and 
+interact with each other. In the context of web development, APIs are commonly used to request and 
+exchange data between a client (usually a web browser or a mobile app) and a server.
+
+API requests are a way for the client to request specific data or perform certain actions from the server. 
+This is typically done using HTTP methods like GET, POST, PUT, DELETE, etc. The client sends a request to the server, 
+and the server responds with the requested data or performs the requested action.
+
+For example, in JavaScript, you can make API requests using various methods, such as the fetch() function or libraries like Axios or jQuery. 
+Here's a simple example using fetch():
+
+javascript
+Copy code
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => {
+    // Process the data received from the API
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    let myURL = "https://api.github.com/users/akshaykumar004"
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',myURL)               // open is a method which allow to send request 
+    console.log("request is sending..")     // printing a msg so that we could know request is sending..
+    xhr.onreadystatechange = function() {   // onreadystatechange function will monitor continuously all states from 0 t0 4
+        console.log(xhr.readyState)         // readyState monitor the state which will change from one to another. request start from 0 to 4.
+        if (xhr.readyState === 4) {
+            //console.log(this.responseText)  // here this is using for taking reference of current context otherwise it will not work.
+            const data = JSON.parse(this.responseText);     // here JSON.parse will convert from string to object format.
+            console.log(typeof data);       //here typeformat of data var is showing string. So to make this working we'll convert into Obj format
+            console.log(data.html_url)      // this will not work until format of data will be object
+        }
+    }
+
+    xhr.send()                          // after open just for sending request call send() otherwise it will not work.
+    
+</script>
+</html>
+
+<!--
+    ==================================== V8 Engine ==================
+    How console.log() console.error() etc works -
+    
+    Goto this path -  https://github.com/v8/v8/blob/main/src/d8/d8-console.cc 
+    and see below code -
+
+    void D8Console::Log(const debug::ConsoleCallArguments& args,
+                    const v8::debug::ConsoleContext&) {
+    WriteToFile(nullptr, stdout, isolate_, args);
+    }
+
+    void D8Console::Error(const debug::ConsoleCallArguments& args,
+                        const v8::debug::ConsoleContext&) {
+    WriteToFile("console.error", stderr, isolate_, args);
+    }
+
+    void D8Console::Warn(const debug::ConsoleCallArguments& args,
+                        const v8::debug::ConsoleContext&) {
+    WriteToFile("console.warn", stdout, isolate_, args);
+    }
+
+    void D8Console::Info(const debug::ConsoleCallArguments& args,
+                        const v8::debug::ConsoleContext&) {
+    WriteToFile("console.info", stdout, isolate_, args);
+    }
+
+    void D8Console::Debug(const debug::ConsoleCallArguments& args,
+                        const v8::debug::ConsoleContext&) {
+    WriteToFile("console.debug", stdout, isolate_, args);
+    }
+
+    -->
