@@ -1,0 +1,43 @@
+<!-- ========================  Day-23 3rd Jan 2024 ==================================================->
+
+//================================== Bind =================================================  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind</title>
+</head>
+<body>
+    <button style="margin-left: 600px;margin-top: 100px;border-radius: 10px;padding: 10px;background-color: aquamarine;">Clicked On</button>
+</body>
+
+<script>
+    class User {
+        constructor(){
+            this.username = "Akshay"
+            this.emailId = "akshay@gmail.com"
+
+            document.querySelector('button').addEventListener('click',this.handleClick.bind(this))    // after using bind it will emailId reference
+        }
+        handleClick(){
+            console.log("button clicked successfully");
+            console.log(this.emailId);  
+            console.log(this);    // this will access both constructor 
+            //here emailId is not printing.giving value as undefined. to make working we've to bind handleClick with constructor.
+        }
+    }
+
+    const details = new User()  // after clicking on button it is calling handleClick() (see in browser console)
+</script>
+</html>
+
+<!--
+    since we are calling this.handleClick and 'this' here is button as console.log(this) gives , 
+    so button do not have handleClick access (that's why its coming as undefined ) , 
+    so we have to explicit bind this to the class context (Which is User) to get the access.
+
+    the bind() method creates a new function when invoked, has its 'this' value explicitly set to the value provided as an argument to bind(). 
+    It doesn't override 'this' in the original function rather it creates a new function with a bound context.
+-->
