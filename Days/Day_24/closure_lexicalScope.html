@@ -1,0 +1,86 @@
+<!-- ----------------------------------- Day-24, 5 Jan 2024 ---------------------------
+    ----------------- Lexical Scope  ---------------------->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Closure</title>
+    </head>
+    <body>
+        <h3 style="text-align: center;">Goto browser console and see how lexical scope is working</h3>
+        <button id="orange" style="margin-left: 500px;margin-top: 50px;border-radius: 10px; padding: 10px;">Orange</button>
+        <button id="green" style="margin-left: 50px;margin-top: 50px;border-radius: 10px; padding: 10px;">Green</button>
+    </body>
+    <script>
+        function outer(){
+            let access = "has access of outer function"
+            //console.log('Outer fun : ', innershare);        // parent fun means outer fun cant access inner funtion value..
+            function inner(){
+                let innershare = 'can access ?'
+                console.log('innerOne : ' , access);
+            }
+            function innerTwo(){
+                console.log('innerTwo : ', access);
+               // console.log('innerTwo : ', innershare);            // innerTwo can't access innerOne value..
+            }
+            inner()
+            innerTwo()
+        }
+        outer()
+    </script>
+
+    <script>
+        //------------------------------------ Closure ------------------------------------
+
+        // function clickHandler(){
+        //     document.getElementById('orange').onclick = function(){
+        //         document.body.style.backgroundColor = 'orange'
+        //     }
+        //     document.getElementById('green').onclick = function(){
+        //         document.body.style.backgroundColor = 'green'
+        //     }
+        // }
+        //clickHandler()
+
+        /* Suppose we have 100 buttons so for every button we've to set background color everytime after onclick . so avoid that we'll write 
+        another function which will set background color of body as per button click.  */
+
+        function clickHandler(color){
+            
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+        document.getElementById('orange').onclick = clickHandler('orange')
+        document.getElementById('green').onclick = clickHandler('green')
+        
+        // in above code return fun() ahving access of color otherwise it don't execute. bcz while returning the fun()
+        // it returns whole lexical scope(means child fun have access of parent fun) of fun() that's why it's working.
+
+        /*=========================================== Notes ==================================================
+        Lexical scope - 
+
+        Lexical scope refers to how the variable scope is defined in the source code. In JavaScript, the scope of a variable is determined by 
+        its location within the code (the placement in the source code). When you declare a variable or a function inside another function, 
+        the inner function has access to the variables declared in its outer (enclosing) function. This access to variables is based on 
+        their lexical environment, which means it looks at the code where the functions are defined.
+
+        Closure - 
+
+        A closure is created when a function retains access to its lexical scope (the scope in which it was defined) even after the outer function
+        has finished execution. This means that the inner function "remembers" and has access to the variables and parameters of its outer function
+        even after the outer function has completed.
+Example - 
+        Imagine you have a recipe book, and in that book, there's a recipe (function) for making a cake. Inside that recipe, 
+        you mention using sugar from the kitchen (variable). Even if you take the recipe to another kitchen (another place in the code) 
+        where it doesn't know about that sugar, it will still remember and use the sugar mentioned in its own instructions—that's like a closure! 
+        The recipe holds on to its needed ingredients no matter where you take it.
+
+        So, closures are like a function's memory—keeping hold of things it needs even after it should theoretically forget about them based on 
+        where it's located in the code.
+         */
+    </script>
+    </html>
+
