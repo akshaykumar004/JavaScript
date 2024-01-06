@@ -15,12 +15,12 @@ Packed Double Element - Float , NaN , Infinity
 
 Once the array will become Packed Double Element then it cant become Packed SMI Element. Compiler cant optimize to upgrade. 
 even after deleting the value.
-Optimization works differently on packed ,  double or string elements.. Order matter here... means default will be Packed SMI 
-and then Packed Double and then...
+Optimization works differently on packed SMI,  double or packed elements.. Order matter here... means default will be Packed SMI 
+and then Packed Double and packed element...
 
-Order - Packed SMI -> Packed Double -> Packed       -- Optimization can be decide expensive or not according to all this order..
+Order - Packed SMI -> Packed Double -> Packed       
         Holey SMI -> Holey Double -> Holey Packed
-
+-- Optimization can be decide expensive or not according to all this order..
 */
 
 arr.push(1 , 2 , 3 , 4 , 5)     // this is called Packed SMI Element
@@ -40,16 +40,16 @@ Why .. let's see -------
 How Array checks the element--------
 
 1- Bound Check
-2- hasOwnPropert(arr,9)
+2- hasOwnProperty(arr,9)
 3- hasOwnProperty(arr.prototype, 10)
 4- hasOwnProperty(Object.prototype , 10)
 
 In 1st check - it will check index position which we're fetching exist or not in array length otherwise give o/p as undefined..
-In 2nd Check - it will check the element exist or not at 9th position otherwise it will give result as udefined
-In 3rd Check - It will check array prototype also means you've defined value inside prototype or not..
+In 2nd Check - it will check the element exist or not at 9th position otherwise it will give result as undefined
+In 3rd Check - It will check array prototype also means have you defined value inside prototype or not..
 In 4th Check - It will check Object Prototype also bcz JavaScript has prototypal nature hence it will check in Object also
 
-so due to this all 4 check, hasOwnProperty check is most expensive Check in JS and Holey is called most Costly Check in JS
+so due to this all 4 check, hasOwnProperty check is most expensive check in JS and Holey is called most Costly Check in JS
 
 */
 
