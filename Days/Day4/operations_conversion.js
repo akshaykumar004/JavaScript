@@ -43,21 +43,15 @@ console.log(gameCounter);
 
 let x = 3;
 const y = x++;
-<<<<<<< HEAD
 
-=======
->>>>>>> 2edf95a65e05b7552b7e13ebfe5478d4be0867e9
 console.log(`x:${x}, y:${y}`);
 // Expected output: "x:4, y:3"
 
 let a = 3;
 const b = ++a;
-<<<<<<< HEAD
 
-=======
->>>>>>> 2edf95a65e05b7552b7e13ebfe5478d4be0867e9
 console.log(`a:${a}, b:${b}`);
-// Expected output: "a:4, b:4"
+//Expected output: "a:4, b:4"
 
 
 // link to study - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment
