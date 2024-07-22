@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "outputCapture": "std",
+            "outputCapture": "std",         // this will add debugger which will show whole output in VS Code output Screen. not like ...
             "skipFiles": [
                 "<node_internals>/**"
             ],
