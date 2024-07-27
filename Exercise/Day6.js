@@ -146,16 +146,6 @@ console.log('element from multi dimensional array [1][1] is : ' , elemnt);
 
 
 
-
-
-
-
-
-
-
-
-
-
 /* ---------------------------- Notes --------------
 push: Adds one or more elements to the end of the array.
 pop: Removes the last element from the end of the array.
