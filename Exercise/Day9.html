@@ -1,0 +1,259 @@
+<!-- -------------------------- ---------- Day 9: DOM Manipulation -----------------------
+---------------------------------------- 31-07-2024 02:47 AM -----------------
+
+Tasks/Activities:
+
+Activity 1: Selecting and Manipulating Elements
+⚫ Task 1: Select an HTML element by its ID and change its text content.
+⚫ Task 2: Select an HTML element by its class and change its background color.
+
+Activity 2: Creating and Appending Elements
+⚫ Task 3: Create a new div element with some text content and append it to the body.
+⚫ Task 4: Create a new li element and add it to an existing ul list.
+
+Activity 3: Removing Elements
+⚫ Task 5: Select an HTML element and remove it from the DOM.
+⚫ Task 6: Remove the last child of a specific HTML element.
+
+Activity 4: Modifying Attributes and Classes
+⚫ Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag).
+⚫ Task 8: Add and remove a CSS class to/from an HTML element.
+
+Activity 5: Event Handling
+⚫ Task 9: Add a click event listener to a button that changes the text content of a paragraph. 
+⚫ Task 10: Add a mouseover event listener to an element that changes its border color.
+
+-->
+
+<!-- ----------------------------------- Activity 1: Selecting and Manipulating Elements -----------------------------
+
+// Task 1: Select an HTML element by its ID and change its text content.    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <h1 class='greet' id="id1">Hi Akshay, Good Morning !</h1>
+    <h2 class='lorem' id="id2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste sapiente, 
+        deserunt facilis inventore possimus ab id consequuntur nulla. Cupiditate, dolor? Dolorum placeat officia repellat 
+        veritatis sed distinctio accusamus officiis minima! </h2>
+
+</body>
+<script>
+    // Select the elements
+    const element1 = document.getElementById('id1');
+    const element2 = document.getElementById('id2');
+    
+    // Print the original text content
+    console.log('Original Text of id1:', element1.textContent);
+    console.log('Original Text of id2:', element2.textContent);
+
+    // Change the text content
+    element1.textContent = 'Hello Everyone ! How are you ?';
+    element2.textContent = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.';
+    
+    // Print the changed text content
+    console.log('Changed Text of id1:', element1.textContent);
+    console.log('Changed Text of id2:', element2.textContent);
+</script>
+</html>
+
+
+<!-- Task 2: Select an HTML element by its class and change its background color --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        .class1 {
+            background-color: blueviolet;
+        }
+        .class2 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="class1" >Hello Akshay</h1>
+    <h2 class="class2">Lorem ipsum dolor sit amet consectetur adipisicing elit.!</h2>
+    
+</body>
+<script>
+
+    const firstElement = document.getElementsByClassName('class1')
+    console.log('Text of class1 with first color:', firstElement[0].textContent); 
+
+    const secondElement = document.getElementsByClassName('class2')
+    console.log('Text of class2 with changed color:', secondElement[0].textContent); 
+
+    // Changed BG Color of text
+
+    firstElement[0].style.backgroundColor = 'orange'      // here why I am using [0] see below notes. without using [0] code will not work.
+    secondElement[0].style.backgroundColor = 'yellow'     // otherwise use querySelector to access class instead of getElementsByClassName
+
+    // Print the changed text content
+    console.log('Changed color of class1:', firstElement[0].style.backgroundColor);
+    console.log('Changed color of class2:', secondElement[0].style.backgroundColor);
+
+</script>
+</html> 
+
+
+<!-- ----------------------------------- Activity 2: Creating and Appending Elements -----------------------------
+
+// Task 3: Create a new div element with some text content and append it to the body. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Div Element</title>
+</head>
+<body>
+    <h1>Welcome to the Page..! A Div element has appended to body.</h1>
+
+    <script>
+        // Create a new div element
+        const div = document.createElement('div');
+            
+        // Set the text content of the div
+        div.textContent = 'This is a div element and this will be appended to the body tag.';
+            
+        // Append the new div to the body
+        document.body.append(div);
+        
+    </script>
+
+</body>
+</html>
+
+<!-- Task 4: Create a new li element and add it to an existing ul list. --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=li, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>Existing li - Jaunpur</li>
+        <li>Existing li - Lucknow</li>
+    </ul>
+
+    <!-- JavaScript to add multiple list items -->
+    <script>
+        // 1. Select the existing <ul> element
+        const ul= document.getElementById('list')
+
+        // 2. Array of new items to add
+        const newlist = ['Below are the new li added in existing li - ','Akshay','Capgemini','Navi Mumbai']
+        
+        // 3. Loop through the array and create <li> elements
+        newlist.forEach( newItem => {       // newItem is a var that represents each element of the newlist array as the loop iterates over it.
+            const newLi = document.createElement('li')
+            newLi.textContent = newItem
+            ul.appendChild(newLi)   
+        })   
+    </script>
+
+</body>
+</html>
+
+<!-- ----------------------------------- Activity 3: Removing Elements ------------------------------
+
+// Task 5: Select an HTML element and remove it from the DOM.       -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Elements</title>
+</head>
+<body>
+    <div id="id1">Akshay</div>
+    <div id="id2">Software Engineer</div>
+    <div id="id3">Mumbai</div>
+    <div id="id4">Navi Mumbai</div>
+
+
+    <script>
+        const removeElement = document.getElementById('id3')
+        console.log('Remove Element is :', removeElement.textContent)   // to see the text open browser console.
+        removeElement.remove()
+    </script>
+</body>
+</html>
+
+<!-- Task 6: Remove the last child of a specific HTML element.      -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Elements</title>
+</head>
+<body>
+    <div>           </div>
+    <div id="id1st">Tanya</div>
+    <div id="id2nd">Software Engineer</div>
+    <div id="id3rd">Pune</div>
+    <div id="id4th">Punjab</div>
+
+
+    <script>
+        const removeLastElement = document.querySelector('div:last-of-type') // this will take automatically last element. u can do by id also
+        console.log('Remove Element is :', removeLastElement.textContent)   // to see the text open browser console.
+        removeLastElement.remove()
+    </script>
+</body>
+</html>
+
+
+
+
+<!--   ------------------- Notes - Task -2  ----------------
+
+Comparison and Issues:
+
+Selection Method:-----
+Your Code:-
+document.getElementsByClassName('class1') returns an HTMLCollection. This collection needs to be accessed by index, 
+e.g., firstElement[0], to get individual elements.
+Working Code:-
+document.querySelector('.class1') selects the first element with the class class1 directly. It returns a single element, 
+not a collection.
+
+Accessing textContent:-------
+Your Code:-
+firstElement.textContent will not work because firstElement is an HTMLCollection, not a single element. 
+You need to access an individual element, e.g., firstElement[0].textContent.
+Working Code:-
+firstElement.textContent works because firstElement is a single element.
+
+Changing Background Color:------
+Your Code:
+firstElement.style.backgroundColor = 'orange' and secondElement.style.backgroundColor = 'yellow' do not work correctly 
+because firstElement and secondElement are HTMLCollections. You need to use indexing to access individual elements, 
+e.g., firstElement[0].style.backgroundColor.
+Working Code:
+firstElement.style.backgroundColor = 'pink' works correctly because firstElement is a single element.
+
+Logging Background Color:----------
+Your Code:
+firstElement.style.backgroundColor and secondElement.style.backgroundColor will not give the correct results because firstElement and 
+secondElement are HTMLCollections. You should use indexing to access the specific element’s style.backgroundColor, 
+e.g., firstElement[0].style.backgroundColor.
+Working Code:
+firstElement.style.backgroundColor gives the correct result because firstElement is a single element.
+-->
