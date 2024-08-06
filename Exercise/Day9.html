@@ -62,7 +62,8 @@ Activity 5: Event Handling
 </html>
 
 
-<!-- Task 2: Select an HTML element by its class and change its background color --> 
+<!-------------- Task 2: Select an HTML element by its class and change its background color ------------------> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +108,7 @@ Activity 5: Event Handling
 
 <!-- ----------------------------------- Activity 2: Creating and Appending Elements -----------------------------
 
-// Task 3: Create a new div element with some text content and append it to the body. -->
+// ----------------- Task 3: Create a new div element with some text content and append it to the body. ----------->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +135,9 @@ Activity 5: Event Handling
 </body>
 </html>
 
-<!-- Task 4: Create a new li element and add it to an existing ul list. --> 
+
+<!-------------------------- Task 4: Create a new li element and add it to an existing ul list. ----------------> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -170,7 +173,9 @@ Activity 5: Event Handling
 
 <!-- ----------------------------------- Activity 3: Removing Elements ------------------------------
 
-// Task 5: Select an HTML element and remove it from the DOM.       -->
+
+// ----------------------- Task 5: Select an HTML element and remove it from the DOM.       -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -194,7 +199,9 @@ Activity 5: Event Handling
 </body>
 </html>
 
-<!-- Task 6: Remove the last child of a specific HTML element.      -->
+
+<!------------------------------ Task 6: Remove the last child of a specific HTML element.      -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -220,9 +227,219 @@ Activity 5: Event Handling
 </html>
 
 
+<!-- ----------------------------------- Activity 4: Modifying Attributes and Classes ------------------------------
 
 
-<!--   ------------------- Notes - Task -2  ----------------
+//--------------- Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag).  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes and Classes</title>
+    <style>
+        .croppedImage {
+            width: 100px;
+            height: 100px;
+            margin-left: 500px;
+        }
+        .image {
+            width: 100px;
+            height: 100px;
+            
+        }
+    </style>
+</head>
+<body>
+    <img src="C:\Users\77079\OneDrive\Documents/L.jpg" alt="LinkedIn Image" class="croppedImage">
+
+    <a href="https://www.linkedin.com/in/akshaykumar01" target="_blank" class="link">LinkedIn
+        <img src="C:\Users\77079\OneDrive\Documents/L.jpg" alt="LinkedIn Image" class="image">
+    </a>
+    <script src="script.js">script</script>
+
+    <script>
+
+        // Access the first image with the class 'croppedImage'
+        const img = document.querySelector('.croppedImage');
+        
+        // Change the src attribute to a new image path
+        img.setAttribute('src', 'C:/Users/77079/OneDrive/Documents/JS_Exercise/Youtube.png');
+        
+    </script>
+</body>
+</html>
+
+
+<!-------------------------- Task 8: Add and remove a CSS class to/from an HTML element. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Remove CSS Class</title>
+    <style>
+        .highlight {
+            color: green;
+            font-style: italic;
+            font-size: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">Hi, My name is Akshay and I work in a MNC called Capgemini as a Software Engineer.</p>
+    <button onclick="addClass()">Add Class</button>
+    <button onclick="removeClass()">Remove Class</button>
+
+    <script>
+        function addClass() {
+            const cssClass = document.getElementById('paragraph')
+            cssClass.classList.add('highlight')
+        }
+        function removeClass() {
+            const cssClass = document.getElementById('paragraph')
+            cssClass.classList.remove('highlight')
+        }
+        
+    </script>
+</body>
+</html>
+       
+
+<!-- ----------------------------------- Activity 5: Event Handling --------------------------------------- -->
+
+<!------------- Task 9: Add a click event listener to a button that changes the text content of a paragraph. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Content</title>
+    <style>
+        #para {
+            font-size: 20px;
+            font-style: italic;
+            color:hotpink;
+        }
+    </style>
+</head>
+<body style="background-color: beige;">
+    <p id="para">Hi, My name is Akshay and I work in a MNC called Capgemini as a Software Engineer.</p>
+    <button onclick="changeContent()">Change Paragraph Content</button>
+    <button onclick="retrieveContent()">Retrieve Content</button>
+
+    <script>
+        // Variable to store the original content
+        let originalContent = document.getElementById('para').textContent
+        function changeContent() {
+            const element = document.getElementById('para')
+            element.textContent = 'Content has changed now.'
+        }
+        function retrieveContent() {
+            const restoreContent = document.getElementById('para')
+            restoreContent.textContent = originalContent
+            
+        }
+    </script>
+</body>
+</html>
+
+
+<!---------------------------------- OR - we can use EventListener also to update the content of element-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text</title>
+</head>
+<body>
+    <p id="paraText" style="font-size: 20px;">Add a click event listener to a button that changes the text content of a paragraph.</p>
+    <button id="changeText">Change Text</button>
+    <button id="restoreText">Restore Text</button>
+
+    <script>
+        // Access the paragraph element and store its initial text
+        const text = document.getElementById('paraText')
+        const initialText = text.textContent
+
+        // Function to change the text content of the paragraph
+        function changeText() {
+            text.textContent = 'Paragraph Text has changed now'
+        }
+
+        // Function to restore the initial text content of the paragraph
+        function restoreText() {
+            text.textContent = initialText
+        }
+
+        // Access the buttons and add event listeners
+        const changeElement = document.getElementById('changeText')
+        changeElement.addEventListener('click',changeText)
+
+        const restoreElement = document.getElementById('restoreText')
+        restoreElement.addEventListener('click',restoreText)
+
+    </script>
+</body>
+</html>
+
+
+<!---------------------- Task 10: Add a mouseover event listener to an element that changes its border color. ---->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Over</title>
+</head>
+<body>
+    <button id="hoverElement" style="font-size: 20px;">Hover over me to change my border color and Text Color.</button>
+
+    <script>
+        // Access the element
+        const element = document.getElementById('hoverElement')
+
+        // Function to change the border color
+        function changeColor() {
+            element.style.borderColor = 'red'
+            element.style.color = 'red'
+            element.style.fontStyle = 'oblique'
+        }
+
+        // Function to reset the border color
+        function resetColor() {
+            element.style.borderColor = 'black'
+            element.style.color = 'black'
+            element.style.fontStyle = 'normal'
+            
+        }
+
+        // Add mouseover event listener to change border color and Text Color
+        element.addEventListener('mouseover',changeColor)
+
+        // Add mouseout event listener to reset border color and text color when the mouse leaves
+        element.addEventListener('mouseout',resetColor)
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!--   ------------------- Notes - Task -2  ---------------- 
 
 Comparison and Issues:
 
@@ -256,4 +473,10 @@ secondElement are HTMLCollections. You should use indexing to access the specifi
 e.g., firstElement[0].style.backgroundColor.
 Working Code:
 firstElement.style.backgroundColor gives the correct result because firstElement is a single element.
+
+
+------------Link------ To make image clickable put the image in between the <a> tag. line No - 249 to 251
+
+
+
 -->
