@@ -90,7 +90,6 @@ Activity 5: Event Delegation
 
     <style>
         #linkedInImg {
-            margin-left: 500px;
             width: 100px;
             height: 100px;
         }
@@ -98,7 +97,9 @@ Activity 5: Event Delegation
 </head>
 <body>
     <!-- <a href="https://www.linkedin.com/in/akshaykumar01" target="_blank"> -->
+        <p>Double click on below image. it will disappear..</p>
         <img src="C:\Users\77079\OneDrive\Documents/L.jpg" alt="LinkedIn Image" id="linkedInImg">
+        
     <!-- </a> -->
 
     <script>
@@ -128,6 +129,106 @@ Activity 5: Event Delegation
     </script>
 </body>
 </html>
+
+
+
+<!-------------------------------------------- Activity 2: Mouse Events ----------------------------------------------
+
+// Task 3: Add a mouseover event listener to an element that changes its background color.
+// Task 4: Add a mouseout event listener to an element that resets its background color  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <style>
+        #paragraph {
+            font-size: x-large;
+            font-family: 'Segoe UI';
+            font-style: oblique;
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph">Hover me to change the background color of text..!</p>
+    <script>
+        const element = document.getElementById('paragraph')
+
+        element.addEventListener('mouseover',function (){       // mouseover will change the background color of text after hover.
+            element.style.backgroundColor = 'red'
+        })
+
+        element.addEventListener('mouseout',function (){        // mouseout will remove change background color after hover.
+            element.style.backgroundColor = ''
+        })
+        
+    </script>
+</body>
+</html>
+
+
+
+<!---------------------------------  Activity 3: Keyboard Events -----------------------------------------------
+
+// Task 5: Add a keydown event listener to an input field that logs the key pressed to the console.     -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <p id="display">This paragraph will update after calling 'keyup' event listener in Input Field. </p>   <!-- this is for task-6 -->
+
+    <script>
+        const inputField = document.getElementById('input')
+        const displayParagraph = document.getElementById('display')
+
+        inputField.addEventListener('keydown', function(event) {
+            console.log(inputField.value = `Key pressed :  ${event.key}`);
+            event.preventDefault();             // Prevent the default action so that the key doesn't get added twice
+        })
+
+
+        // Task 6: Add a keyup event listener to an input field that displays the current value in a paragraph. 
+
+        inputField.addEventListener('keyup', function() {
+            displayParagraph.textContent = `Current ${inputField.value} `
+        })
+
+    </script>
+</body>
+</html>
+
+
+<!--Activity 4: Form Events
+* Task 7: Add a submit event listener to a form that prevents the default submission and logs the form data to the console. 
+* Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+
+Activity 5: Event Delegation
+* Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
+* Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
