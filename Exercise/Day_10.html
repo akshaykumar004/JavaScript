@@ -22,8 +22,7 @@ Activity 4: Form Events
 Activity 5: Event Delegation
 * Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
 * Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
-
---> 
+-->
 
 <!------------------------------------ Activity 1: Basic Event Handling -----------------------------------------
 
@@ -425,14 +424,14 @@ Activity 5: Event Delegation
 
 <!-- Notes -------------
 
-Slice(1):
+----- Slice(1):
 Purpose: The slice method is used to extract a portion of a string. In this case, slice(1) extracts a substring starting from the second 
 character (index 1) of the string.
 Remove the First Character: slice(1) removes the first character of the string (which was the first letter of the selected value in the 
 original code).
 Example: If the selectedCar value is "mercedes-benz", slice(1) would return "ercedes-benz". It removes the first character of the string.
 
-Replace('-', ' '):
+---- Replace('-', ' '): you can use replace('-','') also in above code.
 Purpose: The replace method is used to replace occurrences of a substring with another substring. In this case, it replaces dashes ('-') 
 with spaces (' ').
 Replace Dashes with Spaces: replace('-', ' ') converts any dashes in the remaining string into spaces.
@@ -442,23 +441,22 @@ and "benz" into a space.
 
 =============== What This Line Does => newItem.textContent = 'New Item ' + (document.querySelectorAll('#dynamicList li').length + 1);
 
-document.querySelectorAll('#dynamicList li'):
-
+-------- document.querySelectorAll('#dynamicList li') :-
 This part of the code uses document.querySelectorAll() to select all <li> elements inside the <ul> with the ID dynamicList.
 document.querySelectorAll() returns a NodeList (which is similar to an array) containing all matching elements.
-.length:
 
+-------- .length :-
 The .length property is used to get the number of elements in the NodeList returned by document.querySelectorAll(). 
 This number represents how many <li> elements currently exist inside the <ul>.
-+ 1:
 
+-------- + 1 :-
 After getting the number of existing <li> elements, + 1 is added to that number. This ensures that the new <li> element being created 
 will be labeled as the next sequential item in the list.
 
 For example, if there are currently 3 <li> elements, this expression will result in 3 + 1 = 4, 
 so the new item will be labeled as "New Item 4".
 
-'New Item ' + (document.querySelectorAll('#dynamicList li').length + 1):
+-------- 'New Item ' + (document.querySelectorAll('#dynamicList li').length + 1):
 
 This is string concatenation, where the string "New Item " is combined with the number calculated in the previous step.
 For example, if there are currently 3 <li> elements, this entire expression will result in the string "New Item 4".
