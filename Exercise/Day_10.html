@@ -206,14 +206,263 @@ Activity 5: Event Delegation
 </html>
 
 
-<!--Activity 4: Form Events
-* Task 7: Add a submit event listener to a form that prevents the default submission and logs the form data to the console. 
-* Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+<!-- ---------------------------------------- Activity 4: Form Events ---------------------------------------------------------
 
-Activity 5: Event Delegation
-* Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
-* Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements.
+// Task 7: Add a submit event listener to a form that prevents the default submission and logs the form data to the console. -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+</head>
+<body>
+    <form action="/submit-form">
+        <label for="name">Name : </label>
+        <input type="text" id="name" name="name">
+
+        <label for="loc">Location : </label>
+        <input type="text" id="loc" name="loc">
+        <br>
+        <button type="submit" style="margin-left: 200px; margin-top: 20px; border-radius: 5px;" id="submit">Submit</button>
+        <p id="details">After filling the form click on Submit button. </p>
+    </form>
+
+    <script>
+        const details = document.getElementById('details')
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault()
+            const name = document.getElementById('name').value
+            const loc = document.getElementById('loc').value
+            if (name === '' && loc === '') {
+                alert('Pls fill the form details..!')
+            }
+            else if(name === '') {
+                alert('Pls enter your name..!');
+                
+            } else if(loc === '') {
+                alert('Pls enter your location..!')
+            }
+            else {
+                details.textContent = 'Your Name is ' + name + ' and Your location is ' + loc;
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- ------------ Task 8: Add a change event listener to a select dropdown that displays the selected value in a paragraph. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+</head>
+<body>
+    <form id="carForm">
+        <label for="car">Please choose a Car Brand: </label>
+        <select name="car" id="car">
+            <option value="Select Car">Select Car</option>
+            <option value="rangerover">RangeRover</option>
+            <option value="BMW">BMW</option>
+            <option value="THAR">THAR</option>
+            <option value="audi">Audi</option>
+            <option value="mercedes-Benz">Mercedes-Benz</option>
+            <option value="volkswagen">Volkswagen</option>
+            <option value="toyota">Toyota</option>
+            <option value="honda">Honda</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="nissan">Nissan</option>
+            <option value="innova">Innova</option>
+        </select>
+        <p id="selectedCar">Selected car brand will appear here.</p>
+    </form>
+    <script>
+        const selectedCar = document.getElementById('selectedCar')
+        const car = document.getElementById('car')
+        car.addEventListener('change', function(event){
+            event.preventDefault()
+            const selectedCarBrand = car.value
+            //selectedCar.textContent = selectedCarBrand       // this will show only car name not any other otherthing like formatting etc.
+
+            // Update the paragraph text with the selected car
+            selectedCar.textContent = 'Selected Car Brand is : ' + selectedCarBrand.charAt(0).toUpperCase() + selectedCarBrand.slice(1) 
+            //if slice(1) will not use then result will be like BBMW , Aaudi that means it will add first letter of cars two times.
+        })
+    </script>
+</body>
+</html>
+
+
+
+<!------------------------------------- Activity 5: Event Delegation --------------------------------------------------
+
+// Task 9: Add a click event listener to a list that logs the text content of the clicked list item using event delegation. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+    <p>You can Click on any List item to confirm that Event Listener is called properly or not.</p>
+    <ul id="list">
+        <li>Akshay</li>
+        <li>Software Engineer</li>
+        <li>Navi Mumbai</li>
+        <li>Capgemini</li>
+        <li>Stellantis</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('list')
+        list.addEventListener('click',function(event){
+            // Check if the clicked element is a list item
+            if (event.target.tagName === 'LI') {
+                console.log('List item clicked:', event.target.textContent);
+                alert(`List item clicked: ${event.target.textContent}`)
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- Task 10: Add an event listener to a parent element that listens for events from dynamically added child elements. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+    <div id="buttonContainer">
+        <!-- Buttons will be dynamically added here.. see in browser console -->
+     </div>
+    <script>
+        const button = document.getElementById('buttonContainer').addEventListener('click',function(event){
+            // Check if the clicked element is a <button>
+            if(event.target.tagName === 'BUTTON'){
+                // Handle the event (e.g., log the button's text content)
+                console.log(event.target.textContent);
+                alert(`Button clicked: ${event.target.textContent}`)
+            }
+        })
+
+        // Example of dynamically adding a button
+        const dynamicButton= document.createElement('button')
+        dynamicButton.textContent = 'Click Me'
+        document.getElementById('buttonContainer').appendChild(dynamicButton)
+    </script>
+</body>
+</html>
+
+
+<!------------------------------------------- OR see this another example --------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+<body>
+    <ul id="dynamicList">
+        <!-- List will be dynamically added here -->
+    </ul>
+    <button id="addList">Add Hard Coded List Item</button>
+    <button id="randomList">Add Dynamic List Item</button>
+
+    <script>
+        const listItem = document.getElementById('dynamicList').addEventListener('click',function(event){
+            if(event.target.tagName === 'LI') {
+                // document.body.append = event.target.textContent
+                console.log(`List item clicked: ${event.target.textContent}`)   // click on any list item and see output in browser console.
+                alert(`List item clicked: ${event.target.textContent}`)
+            }
+        })
+
+        //---------- For hard coded list item---------
+
+        const item = ['Akshay' , 'Mumbai' , 'Capgemini' , 'Software Engineer' , 'Project' , 'Stellantis']
+        let index = 0   // Initialize a counter to track the current item
+
+        document.getElementById('addList').addEventListener('click',function() {
+            
+            if(index < item.length) {       // Check if there are more items to add
+                const listButton = document.createElement('li')
+               listButton.textContent = item[index]         // Set the text content to the current item
+               document.getElementById('dynamicList').appendChild(listButton)      // Append the new item to the list
+                index++     // Increment the counter to move to the next item
+            }
+            else {
+                alert('All Iteams have been added now..!');     // Optional: Notify when all items are added
+            }
+
+        }) 
+
+        //--------- For not hard code list ltem ----------------
+        document.getElementById('randomList').addEventListener('click',function(){
+                const randomList = document.createElement('li')
+                randomList.textContent = 'New Item ' + (document.querySelectorAll('#dynamicList li').length + 1);
+                document.getElementById('dynamicList').appendChild(randomList)      // Append the new item to the list
+        })
+        
+    </script>
+</body>
+</html>
+
+
+
+<!-- Notes -------------
+
+Slice(1):
+Purpose: The slice method is used to extract a portion of a string. In this case, slice(1) extracts a substring starting from the second 
+character (index 1) of the string.
+Remove the First Character: slice(1) removes the first character of the string (which was the first letter of the selected value in the 
+original code).
+Example: If the selectedCar value is "mercedes-benz", slice(1) would return "ercedes-benz". It removes the first character of the string.
+
+Replace('-', ' '):
+Purpose: The replace method is used to replace occurrences of a substring with another substring. In this case, it replaces dashes ('-') 
+with spaces (' ').
+Replace Dashes with Spaces: replace('-', ' ') converts any dashes in the remaining string into spaces.
+Example: If the string is "mercedes-benz", replace('-', ' ') would change it to "mercedes benz". It converts the dash between "mercedes" 
+and "benz" into a space.
+
+
+=============== What This Line Does => newItem.textContent = 'New Item ' + (document.querySelectorAll('#dynamicList li').length + 1);
+
+document.querySelectorAll('#dynamicList li'):
+
+This part of the code uses document.querySelectorAll() to select all <li> elements inside the <ul> with the ID dynamicList.
+document.querySelectorAll() returns a NodeList (which is similar to an array) containing all matching elements.
+.length:
+
+The .length property is used to get the number of elements in the NodeList returned by document.querySelectorAll(). 
+This number represents how many <li> elements currently exist inside the <ul>.
++ 1:
+
+After getting the number of existing <li> elements, + 1 is added to that number. This ensures that the new <li> element being created 
+will be labeled as the next sequential item in the list.
+
+For example, if there are currently 3 <li> elements, this expression will result in 3 + 1 = 4, 
+so the new item will be labeled as "New Item 4".
+
+'New Item ' + (document.querySelectorAll('#dynamicList li').length + 1):
+
+This is string concatenation, where the string "New Item " is combined with the number calculated in the previous step.
+For example, if there are currently 3 <li> elements, this entire expression will result in the string "New Item 4".
+    
 -->
 
 
